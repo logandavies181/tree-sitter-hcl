@@ -33,3 +33,5 @@
   ref: (aws_ref_regex) @type)
 
 (comment) @comment
+
+(variable_expr) @normal

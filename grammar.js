@@ -284,8 +284,8 @@ module.exports = grammar({
     template_interpolation_end: $ => choice('}', '~}'),
 
     variable_expr: $ => choice(
-      $.aws_ref,
       $.identifier,
+      prec(1, $.aws_ref),
     ),
 
     function_call: $ => seq(
@@ -399,7 +399,8 @@ module.exports = grammar({
       field('ref', $.aws_ref_regex),
     ),
 
-    aws_ref_regex: $ => /aws_[a-zA-Z0-9_]*/,
+    //aws_ref_regex: $ => /aws_[\p{L}0-9_]*/,
+    aws_ref_regex: $ => /aws_.*/,
 
   }
 });

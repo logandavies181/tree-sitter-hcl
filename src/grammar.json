@@ -796,11 +796,15 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "aws_ref"
+          "name": "identifier"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SYMBOL",
+            "name": "aws_ref"
+          }
         }
       ]
     },
@@ -1229,7 +1233,7 @@
     },
     "aws_ref_regex": {
       "type": "PATTERN",
-      "value": "aws_[a-zA-Z0-9_]*"
+      "value": "aws_.*"
     }
   },
   "extras": [
