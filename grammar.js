@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: 'hcl2',
+  name: 'hcl',
 
   extras: $ => [
     $.comment,
@@ -275,10 +275,13 @@ module.exports = grammar({
     ),
 
     template_interpolation: $ => seq(
-      choice('${', '${~'),
+      field('start', $.template_interpolation_start),
       $.expression,
-      choice('}', '~}')
+      field('end', $.template_interpolation_end),
     ),
+
+    template_interpolation_start: $ => choice('${', '${~'),
+    template_interpolation_end: $ => choice('}', '~}'),
 
     variable_expr: $ => choice(
       $.aws_ref,

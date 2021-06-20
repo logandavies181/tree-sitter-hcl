@@ -21,13 +21,15 @@
  (false)
 ] @constant
 
-(template_interpolation) @special
+(template_interpolation
+  start: (template_interpolation_start) @special
+  end:   (template_interpolation_end) @special)
 
 (get_attr) @property
 
 (function_call) @function
 
 (aws_ref
-  ref: (aws_ref_regex) @typedef)
+  ref: (aws_ref_regex) @type)
 
 (comment) @comment

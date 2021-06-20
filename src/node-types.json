@@ -701,7 +701,28 @@
   {
     "type": "template_interpolation",
     "named": true,
-    "fields": {},
+    "fields": {
+      "end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "template_interpolation_end",
+            "named": true
+          }
+        ]
+      },
+      "start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "template_interpolation_start",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
@@ -712,6 +733,16 @@
         }
       ]
     }
+  },
+  {
+    "type": "template_interpolation_end",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "template_interpolation_start",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "tuple",

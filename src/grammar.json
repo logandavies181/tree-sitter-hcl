@@ -1,5 +1,5 @@
 {
-  "name": "hcl2",
+  "name": "hcl",
   "rules": {
     "source_file": {
       "type": "REPEAT",
@@ -744,34 +744,50 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "${"
-            },
-            {
-              "type": "STRING",
-              "value": "${~"
-            }
-          ]
+          "type": "FIELD",
+          "name": "start",
+          "content": {
+            "type": "SYMBOL",
+            "name": "template_interpolation_start"
+          }
         },
         {
           "type": "SYMBOL",
           "name": "expression"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "}"
-            },
-            {
-              "type": "STRING",
-              "value": "~}"
-            }
-          ]
+          "type": "FIELD",
+          "name": "end",
+          "content": {
+            "type": "SYMBOL",
+            "name": "template_interpolation_end"
+          }
+        }
+      ]
+    },
+    "template_interpolation_start": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "${"
+        },
+        {
+          "type": "STRING",
+          "value": "${~"
+        }
+      ]
+    },
+    "template_interpolation_end": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "}"
+        },
+        {
+          "type": "STRING",
+          "value": "~}"
         }
       ]
     },
